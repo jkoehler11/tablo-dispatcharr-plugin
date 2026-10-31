@@ -52,8 +52,8 @@ class Plugin:
         "Point Dispatcharr at a tablo-bridge playlist and keep the M3U account, "
         "EPG source, channels and EPG mapping in step with the Tablo's lineup."
     )
-    author = ""
-    help_url = ""
+    author = "jkoehler11"
+    help_url = "https://github.com/jkoehler11/tablo-dispatcharr-plugin"
 
     fields = [
         {"id": "bridge_url", "label": "Bridge URL", "type": "string",

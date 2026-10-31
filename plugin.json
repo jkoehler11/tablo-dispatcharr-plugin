@@ -2,8 +2,10 @@
   "name": "Tablo Tuner",
   "version": "0.1.0",
   "description": "Connect Dispatcharr to a tablo-bridge playlist: creates the M3U account, the XMLTV source, one channel per stream with the Proxy profile, and the EPG mapping, and re-syncs them when the Tablo's lineup changes.",
-  "author": "",
-  "help_url": "",
+  "author": "jkoehler11",
+  "license": "MIT",
+  "help_url": "https://github.com/jkoehler11/tablo-dispatcharr-plugin",
+  "min_dispatcharr_version": "v0.33.0",
   "fields": [
     {
       "id": "bridge_url",
