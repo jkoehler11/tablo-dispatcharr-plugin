@@ -1,0 +1,86 @@
+{
+  "name": "Tablo Tuner",
+  "version": "0.1.0",
+  "description": "Connect Dispatcharr to a tablo-bridge playlist: creates the M3U account, the XMLTV source, one channel per stream with the Proxy profile, and the EPG mapping, and re-syncs them when the Tablo's lineup changes.",
+  "author": "",
+  "help_url": "",
+  "fields": [
+    {
+      "id": "bridge_url",
+      "label": "Bridge URL",
+      "type": "string",
+      "default": "http://192.168.86.30:8050",
+      "help_text": "Base URL of the tablo-bridge container as Dispatcharr sees it."
+    },
+    {
+      "id": "account_name",
+      "label": "M3U account name",
+      "type": "string",
+      "default": "Tablo OTA"
+    },
+    {
+      "id": "epg_source_name",
+      "label": "EPG source name",
+      "type": "string",
+      "default": "Tablo EPG"
+    },
+    {
+      "id": "max_streams",
+      "label": "Concurrent streams (tuners)",
+      "type": "number",
+      "default": 2,
+      "min": 1,
+      "max": 8
+    },
+    {
+      "id": "stream_profile",
+      "label": "Channel stream profile",
+      "type": "string",
+      "default": "Proxy",
+      "help_text": "Locked profile for these channels. Anything but Proxy runs the stream through streamlink/VLC/ffmpeg, which fails on a raw TS."
+    },
+    {
+      "id": "channel_profile",
+      "label": "Channel profile (optional)",
+      "type": "string",
+      "default": "",
+      "help_text": "Also add the channels to this Dispatcharr channel profile."
+    },
+    {
+      "id": "startup_timeout",
+      "label": "Proxy startup timeout (s)",
+      "type": "number",
+      "default": 30,
+      "min": 5,
+      "max": 120,
+      "help_text": "A Tablo takes 6-11 s to allocate a tuner; the 8 s default declares the channel dead before the first byte."
+    },
+    {
+      "id": "manage_channels",
+      "label": "Create and maintain channels",
+      "type": "boolean",
+      "default": true
+    }
+  ],
+  "actions": [
+    {
+      "id": "setup",
+      "label": "Set up Tablo live TV",
+      "description": "Idempotent: account, guide, channels, profiles, EPG mapping.",
+      "button_label": "Set up",
+      "button_variant": "primary"
+    },
+    {
+      "id": "resync",
+      "label": "Re-sync channels",
+      "description": "Refresh the playlist and add, rename or retire channels.",
+      "button_label": "Re-sync"
+    },
+    {
+      "id": "status",
+      "label": "Show status",
+      "description": "Read-only summary of what is configured and what is missing.",
+      "button_label": "Status"
+    }
+  ]
+}
